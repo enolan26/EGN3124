@@ -9,8 +9,8 @@ from scipy.constants import convert_temperature
 # t = float(input('Enter Temperature with a space and unit (C,F,K): ').upper())
 # v = n * .0821 * t / p
 
-print("Unit Converter");
-print();
+print("Unit Converter")
+print()
 
 temperature = str(input('Enter Temperature with a space and unit (C,F,K): ').upper())
 
@@ -57,11 +57,10 @@ def get_pressure():
     return P
 
 def calc_v():
-    p = (P)
+    p = (pressure * ureg.atm)
     n = 1
     r = .0821
     t = (T)
 
-    v = n * .0821 * t / p
-    print()
-    print(f'Volume in Liters: {v:.2f}')
+    v = n * r * t / p
+    print(f'v: {v:.2f}')
