@@ -1,13 +1,12 @@
+P = float(P)
+V = float(input('Volume (liters):'))
+n = 1
+r = .0821
+T = float(input(T)
+
 from pint import UnitRegistry
 ureg = UnitRegistry()
 from scipy.constants import convert_temperature
-
-# p = float(input('Enter Pressure with a space and unit (ATM, inHG, PSI): ').upper())
-# v = float(input('Volume (liters):'))
-# n = 1
-# r = .0821
-# t = float(input('Enter Temperature with a space and unit (C,F,K): ').upper())
-# v = n * .0821 * t / p
 
 print("Unit Converter")
 print()
@@ -15,6 +14,16 @@ print()
 temperature = str(input('Enter Temperature with a space and unit (C,F,K): ').upper())
 
 pressure = str(input('Enter Pressure with a space and unit (ATM, inHG, PSI): ').upper())
+
+def CalculateVolume(P, n, T):
+
+    R = 0.0821 # Universal Gas Constant on atm.L/(mol.K)
+    n = 1
+    V = (n*R*T)/P
+
+    return V
+    print((n*R*T)/P{:.2f})
+    
 
 def get_temp(temperature):
     if temp[-1] == 'F':
@@ -38,7 +47,7 @@ def get_temp(temperature):
 
     return T
 
-def get_pressure():
+def get_pressure(pressure):
     if pressure.split()[1] == 'PSI':
         pressure = int(pressure[:-3])
         P = pressure * ureg.psi
@@ -55,12 +64,3 @@ def get_pressure():
         print(P.to(ureg.atm))
 
     return P
-
-def calc_v():
-    p = (pressure * ureg.atm)
-    n = 1
-    r = .0821
-    t = (T)
-
-    v = n * r * t / p
-    print(f'v: {v:.2f}')
