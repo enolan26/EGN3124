@@ -1,8 +1,8 @@
-P = float(P)
-V = float(input('Volume (liters):'))
-n = 1
-r = .0821
-T = float(input(T)
+
+#P = float(input(P)
+#n = 1
+#r = .0821
+#T = float(input(T)
 
 from pint import UnitRegistry
 ureg = UnitRegistry()
@@ -17,13 +17,13 @@ pressure = str(input('Enter Pressure with a space and unit (ATM, inHG, PSI): ').
 
 def CalculateVolume(P, n, T):
 
-    R = 0.0821 # Universal Gas Constant on atm.L/(mol.K)
+    R = 0.0821
     n = 1
-    V = (n*R*T)/P
+    v = (n*R*T)/P
+    T = T = int(temperature)
 
-    return V
-    print((n*R*T)/P{:.2f})
-    
+    print(v = (n*R*T)/P)
+       
 
 def get_temp(temperature):
     if temp[-1] == 'F':
@@ -62,5 +62,6 @@ def get_pressure(pressure):
         pressure = int(pressure[:-3])
         P = pressure * ureg.atm
         print(P.to(ureg.atm))
-
+    else:
+        print('Enter a valid temperature and unit!')
     return P
