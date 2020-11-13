@@ -1,17 +1,9 @@
 import numpy as np
 import pandas as pd
-from pandas.io.sql import table_exists
 
 #create csv file for cosine and import
-#url=r'https://www.grc.nasa.gov/WWW/K-12/airplane/tablcos.html'
-#t_table = pd.read_html(url, header=1)
-#t_table = t_table[0]
-
-#cols = t_table.columns
-#t_table = t_table.rename({'Angle': 'sinA'}, axis=1)
-#t_table = t_table.drop(columns=['Angle', 'cosA', 'Angle', 'cosA', 'Angle', 'cosA', 'Angle', 'cosA'])
-#print(t_table)
-#print()
+df = pd.read_csv (r'C:\Users\ebnol\Documents\School 2020\Prog For Engineering\Excel Files\Cosine.csv')
+print (df)
 
 t = str(input('Enter nominal torque value and unit:').upper())
 rt = str(input('Enter measured running torque and unit:').upper())
@@ -23,14 +15,14 @@ ATA = (t*L)/(LW +L*(cos)) + rt
 
 while continue_yn=='y':
      if question == 'ask':
-          question = input('Are you using a crowsfoot and or ann extension (Y, N)?').upper()
+          question = input('Are you using a crowsfoot and or an extension (Y, N)?').upper()
     
      if question == 'Y':
           t = float(input("Enter nominal torque value in inch-lbs: "))
           rt = float(input("Enter measured running torque in inch-lbs: "))
           L  = float(input("Enter Length of extensions in inches enter 0 if extension is not used: "))
           LW = float(input("Enter Length of toqure wrench in inches: "))
-          cos = float(input("Enter cosine decimal equivalent for angle from imported data array: "))
+          cos = float(input("Enter cosine decimal equivalent for angle from imported data array enter 0 for 90 and 270 degrees: "))
           print()
           ata = (t*L)/(LW +L*(cos)) + rt
           print(f'Round up to whole number and set torque wrench to: {ata:.2f}')
@@ -38,8 +30,8 @@ while continue_yn=='y':
         
 continue_yn = input('Would you like enter new data? (Y, N)?').lower()
 
-elif question == 'N':
-
+if question == 'N':
+     
      t = float(input("Enter nominal torque value in inch-lbs: "))
      rt = float(input("Enter measured running torque in inch-lbs: "))
      print()          
@@ -47,7 +39,12 @@ elif question == 'N':
      print(torque = t + rt)
 
 continue_yn = input('Would you like enter new data? (Y, N)?').lower()
-        
+
+     elif question == 'N': 
+          print("Values will print in array.")
+          
+          break
+          
 
 def calculateTwithext(t, rt, L, Lw):
      #AT = adjusted torque
