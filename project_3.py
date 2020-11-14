@@ -45,8 +45,11 @@ while continue_yn=='y':
           print()
      
      continue_yn = input('Would you like enter new data? (Y, N)?').lower()
-    
 
+     else:
+        print('Please enter a valid choice.')
+        question = 'ask'
+    
      # elif question == 'N': 
      #      print("Values will print in array.")
           
