@@ -26,13 +26,15 @@ while continue_yn=='y':
           lw  = float(input("Enter Length of extensions in inches if used, angle of 180 needs added length of crows foot: "))
           l = float(input("Enter Length of toqure wrench in inches: "))
           cos = float(input("Enter cosine decimal equivalent for angle up to 90 degrees.  Use zero for 90 and 270.  Use Zero for 180 and input extension length: "))
+          print()
           
           if cos==0:
                ata = ((t+rt)*l)/(lw+l)
           else:
                ata = ((t+rt)*l)/((lw+l)*cos)
-
-          print(f'Round up to whole number and set torque wrench to: {ata:.2f} in-lbs')   
+          print()
+          print(f'Round up to whole number and set torque wrench to: {ata:.2f} in-lbs')
+          print()
           
      if continue_yn == "y":
           question = input('Are you using a crowsfoot, extension or both (Y, N)?').upper()
@@ -44,11 +46,10 @@ while continue_yn=='y':
           print()          
           nt = t + rt
           print(f'Set torque wrench to: {nt:.2f} in-lbs')
-          print()
-          
-continue_yn = input('Would you like enter new data? (Y, N)?').lower()  
+          print() 
 
 if continue_yn == "y":
+     print()
      question = input('Are you using a crowsfoot, extension or both (Y, N)?').upper()
           
 
