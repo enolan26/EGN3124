@@ -23,17 +23,19 @@ while continue_yn=='y':
      if question == 'Y':
           t = float(input("Enter nominal torque value in inch-lbs: "))
           rt = float(input("Enter measured running torque in inch-lbs: "))
-          lw  = float(input("Enter Length of extensions in inches: "))
+          lw  = float(input("Enter Length of extensions in inches if used, angle of 180 needs added length of crows foot: "))
           l = float(input("Enter Length of toqure wrench in inches: "))
-          cos = float(input("Enter cosine decimal equivalent for angle from imported data array enter 0 for 90 and 270 degrees: "))
+          cos = float(input("Enter cosine decimal equivalent for angle up to 90 degrees.  Use zero for 90 and 270.  Use Zero for 180 and input extension length: "))
           
           if cos==0:
                ata = ((t+rt)*l)/(lw+l)
           else:
                ata = ((t+rt)*l)/((lw+l)*cos)
 
-          print(f'Round up to whole number and set torque wrench to: {ata:.2f} in-lbs')
-        
+          print(f'Round up to whole number and set torque wrench to: {ata:.2f} in-lbs')   
+          
+     if continue_yn == "y":
+          question = input('Are you using a crowsfoot, extension or both (Y, N)?').upper()
 
      if question == 'N':
      
@@ -43,27 +45,16 @@ while continue_yn=='y':
           nt = t + rt
           print(f'Set torque wrench to: {nt:.2f} in-lbs')
           print()
-     
-     continue_yn = input('Would you like enter new data? (Y, N)?').lower()
-
-     else:
-        print('Please enter a valid choice.')
-        question = 'ask'
-    
-     # elif question == 'N': 
-     #      print("Values will print in array.")
           
-     #      break
+continue_yn = input('Would you like enter new data? (Y, N)?').lower()  
+
+if continue_yn == "y":
+     question = input('Are you using a crowsfoot, extension or both (Y, N)?').upper()
           
 
-def calculateTwithext(t, rt, L, lw):
-     #AT = adjusted torque
-     AT = (t*L)/(Lx + lw)
+# runs = (f'Round up to whole number and set torque wrench to: {ata:.2f} in-lbs', f'Set torque wrench to: {nt:.2f} in-lbs')
 
-def calculateTwithangle(t, rt, L, lw, cos):
-     #ATA = adjusted torque with angle
-     #find correct formula
-     ATA = (t*L)/(lw +L*(cos))
-
-# while loop to enter more than one value.
-#print table with computed values.
+# results = []
+# for i in range(runs):
+#      results.append(runs(100))
+#      np.hstack(results)
