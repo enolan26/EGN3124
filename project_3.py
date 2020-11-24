@@ -1,5 +1,8 @@
 import numpy as np
 import pandas as pd
+import matplotlib as mp
+import matplotlib.pyplot as plt
+
 
 #create csv file for cosine and import
 df = pd.read_csv (r'C:\Users\ebnol\Documents\School 2020\Prog For Engineering\Excel Files\Cosine.csv')
@@ -14,21 +17,20 @@ print (df)
 # ATA = (t*L)/(lw +L*(cos)) + rt
 continue_yn = 'y'
 question = 'ask'
-question2 = 'ask2'
 
 print()
 while continue_yn=='y':
      if question == 'ask':
           question = input('Are you using a crowsfoot, extension or both (Y, N)?').upper()
+          print()
     
      if question == 'Y':
           t = float(input("Enter nominal torque value in inch-lbs: "))
           rt = float(input("Enter measured running torque in inch-lbs: "))
-          lw  = float(input("Enter Length of extensions in inches if used, angle of 180 needs added length of crows foot: "))
+          lw  = float(input("Enter Length of extension in inches if used.  Angle of 180 on extension or crowsfoot will need to be entered as extension length: "))
           l = float(input("Enter Length of toqure wrench in inches: "))
-          cos = float(input("Enter cosine decimal equivalent for angle up to 90 degrees.  Use zero for 90 and 270.  Use Zero for 180 and input extension length: "))
-          print()
-          
+          cos = float(input("Enter cosine decimal equivalent for angle up to 90 degrees if angle needed.  Consider 180 as zero degrees and work back to 89 degrees. Use zero for 90 and 270 degrees: "))
+                    
           if cos==0:
                ata = ((t+rt)*l)/(lw+l)
           else:
@@ -39,7 +41,7 @@ while continue_yn=='y':
           print()
           print(f'Round up to whole number and set torque wrench to: {ata:.2f} in-lbs')
           print(f'Round up to whole number and set torque wrench to: {nm1:.2f} Nm')
-          print(f'Round up to whole number and set torque wrench to: {ftlb1:.2f} in-lbs')
+          print(f'Round up to whole number and set torque wrench to: {ftlb1:.2f} ft-lbs')
           print()
 
           continue_yn = input('Would you like enter new data? (Y, N)?').lower()
@@ -47,8 +49,9 @@ while continue_yn=='y':
           if continue_yn == 'N':
                break
           
-     if continue_yn == "y":
+     elif continue_yn == "y":
           question = input('Are you using a crowsfoot, extension or both (Y, N)?').upper()
+          print()
 
      if question == 'N':
      
@@ -67,16 +70,21 @@ while continue_yn=='y':
           continue_yn = input('Would you like enter new data? (Y, N)?').lower()
           print()
           if continue_yn == 'N':
-               break
 
+def calculatePlot():
+     for nt in torque:
+     nt.append(nt(nt))
+     plt.xlabel("Number of Bolts")
+     plt.ylabel("Torque)")
+     plt.title('Final torque including running torque.')
+     plt.scatter(nt color='blue')
+     plt.show() 
+                    
+     break
+          
 if continue_yn == "y":
      print()
      question = input('Are you using a crowsfoot, extension or both (Y, N)?').upper()
 
 #Variables to add to array, nt, ata, nm1, nm2, ftlb1, ftlb2)
-# runs = (????)
 
-# results = []
-# for i in range(runs):
-#      results.append(runs(100))
-#      np.hstack(results)
