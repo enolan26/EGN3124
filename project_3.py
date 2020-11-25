@@ -73,7 +73,7 @@ while continue_yn=='y':
 
 def calculatePlot():
      for nt in torque:
-     nt.append(nt(nt))
+     nt.append(nt(nt, ata))
      plt.xlabel("Number of Bolts")
      plt.ylabel("Torque)")
      plt.title('Final torque including running torque.')
