@@ -3,6 +3,13 @@ import pandas as pd
 import matplotlib as mp
 import matplotlib.pyplot as plt
 
+def calculateplot(torque):
+
+     plt.xlabel("Number of Bolts")
+     plt.ylabel("Torque)")
+     plt.title('Final torque including running torque.')
+     plt.scatter(torque, color='blue')
+     plt.show()
 
 #create csv file for cosine and import
 df = pd.read_csv (r'C:\Users\ebnol\Documents\School 2020\Prog For Engineering\Excel Files\Cosine.csv')
@@ -14,9 +21,14 @@ print (df)
 # lw =str(input('Enter length of torque wrench in inches:')).upper()
 # cos = str(input('Enter cosine decimal equivalent for angle from imported data array').upper())
 # AT = (t*L)/(L + lw) + rt
-# ATA = (t*L)/(lw +L*(cos)) + rt
+#ata = (t*L)/(lw +L*(cos)) + rt
+
 continue_yn = 'y'
 question = 'ask'
+torque = []
+numberbolts = []
+
+count =0
 
 print()
 while continue_yn=='y':
@@ -37,6 +49,8 @@ while continue_yn=='y':
                ata = ((t+rt)*l)/((lw+l)*cos)
           nm1 = ata * .113
           ftlb1 = ata/12
+          torque.append(ata)
+          numberbolts.append(count)
 
           print()
           print(f'Round up to whole number and set torque wrench to: {ata:.2f} in-lbs')
@@ -64,6 +78,8 @@ while continue_yn=='y':
           print(f'Set torque wrench to: {nt:.2f} in-lbs')
           print(f'Set torque wrench to: {nm2:.2f} Nm')
           print(f'Set torque wrench to: {ftlb2:.2f} ft-lbs')
+          torque.append(ata)
+          numberbolts.append(count)
           
           print() 
      
@@ -71,20 +87,15 @@ while continue_yn=='y':
           print()
           if continue_yn == 'N':
 
-def calculatePlot():
-     for nt in torque:
-     nt.append(nt(nt, ata))
-     plt.xlabel("Number of Bolts")
-     plt.ylabel("Torque)")
-     plt.title('Final torque including running torque.')
-     plt.scatter(nt color='blue')
-     plt.show() 
-                    
-     break
+               break
+
+while numberbolts != torque:
+     count +=1
+     print(count)
           
 if continue_yn == "y":
      print()
-     question = input('Are you using a crowsfoot, extension or both (Y, N)?').upper()
+     question = input('Are you using a crowsfoot, extension or both (Y, N)?').lower()
 
-#Variables to add to array, nt, ata, nm1, nm2, ftlb1, ftlb2)
+calculateplot()
 
