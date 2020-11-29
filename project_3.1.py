@@ -25,6 +25,7 @@ print (df)
 continue_yn = 'y'
 question = 'ask'
 torque = []
+numberbolts = [count]
 print()
 while continue_yn=='y':
      if question == 'ask':
@@ -45,8 +46,8 @@ while continue_yn=='y':
           nm1 = ata * .113
           ftlb1 = ata/12
           torque.append(ata)
-
-          print()
+          numberbolts.append(print(count)
+          
           print(f'Round up to whole number and set torque wrench to: {ata:.2f} in-lbs')
           print(f'Round up to whole number and set torque wrench to: {nm1:.2f} Nm')
           print(f'Round up to whole number and set torque wrench to: {ftlb1:.2f} ft-lbs')
@@ -64,6 +65,7 @@ while continue_yn=='y':
           nm2 = nt * .113
           ftlb2 = nt/12
           torque.append(nt)
+          numberbolts.append(print(count)
           print(f'Set torque wrench to: {nt:.2f} in-lbs')
           print(f'Set torque wrench to: {nm2:.2f} Nm')
           print(f'Set torque wrench to: {ftlb2:.2f} ft-lbs')
@@ -71,12 +73,21 @@ while continue_yn=='y':
           print() 
      
           continue_yn = input('Would you like enter new data? (Y, N)?').lower()
+
+          continue_yn = input('Would you like enter new data? (Y, N)?').lower()
+          print()
+          if continue_yn == 'N':
+
+               break
           
           print()
      elif continue_yn == "y":
           question = 'ask'
           print()
 
-#Variables to add to array, nt, ata, nm1, nm2, ftlb1, ftlb2)
 
-calculateplot(torque)
+
+count =0
+while x != y:
+     count +=1
+     print(count)
